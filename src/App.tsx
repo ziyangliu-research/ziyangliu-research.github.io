@@ -44,10 +44,7 @@ export default function App() {
   }, []);
 
   const navItems = [
-    { name: "About", href: "#about" },
     { name: "News", href: "#news" },
-    { name: "Education", href: "#education" },
-    { name: "Research", href: "#research" },
     { name: "Publications", href: "#publications" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
@@ -56,218 +53,158 @@ export default function App() {
   return (
     <div className="min-h-screen selection:bg-accent/10 selection:text-accent">
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass py-4 shadow-sm" : "bg-transparent py-6"}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass py-3 shadow-sm" : "bg-transparent py-5"}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <motion.a 
             href="#top" 
-            className="font-serif text-xl font-bold tracking-tighter"
+            className="font-serif text-lg font-bold tracking-tighter"
             whileHover={{ scale: 1.05 }}
           >
             ZIYANG LIU
           </motion.a>
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex gap-6">
             {navItems.map((item) => (
-              <a key={item.name} href={item.href} className="nav-link">
+              <a key={item.name} href={item.href} className="nav-link text-xs uppercase tracking-widest">
                 {item.name}
               </a>
             ))}
           </div>
           <button className="md:hidden text-primary">
-            <Search size={20} />
+            <Search size={18} />
           </button>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="top" className="pt-32 pb-16 md:pt-48 md:pb-32 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-12 items-center">
+      {/* Hero & Profile Integrated */}
+      <section id="top" className="pt-24 pb-12 md:pt-36 md:pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-12 items-start">
           <motion.div 
-            className="flex-1 space-y-6 text-center md:text-left"
+            className="flex-[2] space-y-6"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/5 border border-accent/10 text-accent text-xs font-semibold uppercase tracking-wider">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-              </span>
-              Available for Collaboration
+            <div className="space-y-2">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tighter leading-tight">
+                Ziyang <span className="text-accent italic">Liu</span>
+              </h1>
+              <p className="text-lg md:text-xl text-secondary leading-relaxed">
+                Ph.D. Student @ <span className="text-primary font-medium">Institute of Science Tokyo</span> <br className="hidden md:block" />
+                Collaborative Researcher @ <span className="text-primary font-medium">Sophia University</span>
+              </p>
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tighter leading-tight">
-              Ziyang <span className="text-accent italic">Liu</span>
-            </h1>
-            <p className="text-lg md:text-xl text-secondary max-w-2xl leading-relaxed">
-              Ph.D. Student @ <span className="text-primary font-medium">Institute of Science Tokyo</span> <br className="hidden md:block" />
-              Collaborative Researcher @ <span className="text-primary font-medium">Sophia University</span>
-            </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-              <a href="mailto:shiyo.lzy@gmail.com" className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-accent transition-all duration-300 shadow-lg shadow-primary/10">
-                <Mail size={18} />
-                <span>Email Me</span>
-              </a>
-              <a href="#" className="flex items-center gap-2 px-6 py-3 border border-border rounded-full hover:bg-surface transition-all duration-300">
-                <FileText size={18} />
-                <span>Curriculum Vitae</span>
-              </a>
-              <div className="flex gap-4 items-center px-4">
-                <a href="https://github.com/ziyangliu-research" target="_blank" className="text-secondary hover:text-primary transition-colors">
-                  <Github size={22} />
-                </a>
-                <a href="#" className="text-secondary hover:text-primary transition-colors">
-                  <Globe size={22} />
-                </a>
+
+            <div className="text-base md:text-lg text-secondary leading-relaxed max-w-3xl space-y-4">
+              <p>
+                I am a Ph.D. student at the <span className="text-primary font-medium">Institute of Science Tokyo</span> and a collaborative researcher at <span className="text-primary font-medium">Sophia University</span>. My research focuses on the intersection of human-computer interaction and collaborative technologies.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["HCI", "Collaborative Systems", "CSCW", "User Experience", "AI for Research"].map(tag => (
+                  <span key={tag} className="badge text-[9px]">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-border">
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 text-accent">
+                  <GraduationCap size={14} />
+                  Education
+                </h3>
+                <div className="space-y-2">
+                  {[
+                    { degree: "Ph.D. in Computer Science", school: "Institute of Science Tokyo", year: "2026 - Present" },
+                    { degree: "M.S. in Information Systems", school: "Sophia University", year: "2023 - 2025" },
+                  ].map((edu, i) => (
+                    <div key={i} className="text-sm">
+                      <p className="font-bold">{edu.degree}</p>
+                      <p className="text-secondary text-xs">{edu.school} · {edu.year}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="space-y-3">
+                <h3 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 text-accent">
+                  <Briefcase size={14} />
+                  Positions
+                </h3>
+                <div className="space-y-2">
+                  {[
+                    { role: "Collaborative Researcher", org: "Sophia University", year: "2025 - Present" },
+                    { role: "Research Assistant", org: "HCI Lab, Tokyo", year: "2024 - 2025" },
+                  ].map((pos, i) => (
+                    <div key={i} className="text-sm">
+                      <p className="font-bold">{pos.role}</p>
+                      <p className="text-secondary text-xs">{pos.org} · {pos.year}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
+
           <motion.div 
-            className="w-64 h-64 md:w-80 md:h-80 relative"
+            className="flex-1 space-y-6"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="absolute inset-0 bg-accent/10 rounded-[40px] rotate-6"></div>
-            <div className="absolute inset-0 bg-surface border border-border rounded-[40px] overflow-hidden">
-              <img 
-                src="https://picsum.photos/seed/ziyang/800/800" 
-                alt="Ziyang Liu" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                referrerPolicy="no-referrer"
-              />
+            <div className="relative w-full aspect-square max-w-[320px] mx-auto md:mx-0">
+              <div className="absolute inset-0 bg-accent/5 rounded-3xl rotate-3"></div>
+              <div className="absolute inset-0 bg-surface border border-border rounded-3xl overflow-hidden shadow-sm">
+                <img 
+                  src="https://picsum.photos/seed/ziyang/600/600" 
+                  alt="Ziyang Liu" 
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-4 px-2">
+              <div className="space-y-1">
+                <h4 className="text-[10px] font-bold uppercase text-accent tracking-widest">Contact & Location</h4>
+                <div className="space-y-2 pt-1">
+                  <a href="mailto:shiyo.lzy@gmail.com" className="flex items-center gap-2 text-sm text-secondary hover:text-accent transition-colors">
+                    <Mail size={14} />
+                    shiyo.lzy@gmail.com
+                  </a>
+                  <p className="flex items-center gap-2 text-sm text-secondary">
+                    <MapPin size={14} />
+                    Tokyo, Japan
+                  </p>
+                  <p className="flex items-center gap-2 text-sm text-secondary">
+                    <Globe size={14} />
+                    EN, JP, CN
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3 pt-2">
+                <a href="https://github.com/ziyangliu-research" target="_blank" className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
+                  <Github size={18} />
+                </a>
+                <a href="#" className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
+                  <FileText size={18} />
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* About Section */}
-      <Section id="about" title="About">
-        <div className="grid md:grid-cols-3 gap-12">
-          <div className="md:col-span-2 space-y-6 text-lg text-secondary leading-relaxed">
-            <p>
-              I am currently a Ph.D. student at the <span className="text-primary font-medium">Institute of Science Tokyo</span> and a collaborative researcher at <span className="text-primary font-medium">Sophia University</span>. My research focuses on the intersection of human-computer interaction and collaborative technologies.
-            </p>
-            <p>
-              With a background in computer science and a passion for designing systems that empower human collaboration, I explore how digital tools can facilitate more effective and meaningful interactions in both professional and educational settings.
-            </p>
-            <div className="flex flex-wrap gap-3 pt-4">
-              {["HCI", "Collaborative Systems", "CSCW", "User Experience", "AI for Research"].map(tag => (
-                <span key={tag} className="badge">{tag}</span>
-              ))}
-            </div>
-          </div>
-          <div className="space-y-6">
-            <div className="card">
-              <h3 className="text-xl mb-4 flex items-center gap-2">
-                <MapPin size={18} className="text-accent" />
-                Location
-              </h3>
-              <p className="text-secondary">Tokyo, Japan</p>
-            </div>
-            <div className="card">
-              <h3 className="text-xl mb-4 flex items-center gap-2">
-                <Globe size={18} className="text-accent" />
-                Languages
-              </h3>
-              <p className="text-secondary">English (Fluent), Japanese (Advanced), Chinese (Native)</p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* News Section */}
-      <Section id="news" title="News" className="bg-surface/50">
-        <div className="max-w-3xl">
+      {/* News Section - Compact */}
+      <Section id="news" title="Recent News" className="bg-surface/30">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-4">
           {[
-            { date: "Mar 2026", content: "Presented our latest work on collaborative interfaces at CHI 2026." },
-            { date: "Jan 2026", content: "Joined the Institute of Science Tokyo as a Ph.D. candidate." },
-            { date: "Nov 2025", content: "Awarded the Best Paper Honorable Mention at CSCW 2025." },
-            { date: "Sep 2025", content: "Started a research collaboration with Sophia University." },
+            { date: "Mar 2026", content: "Presented our work at CHI 2026." },
+            { date: "Jan 2026", content: "Joined Institute of Science Tokyo." },
+            { date: "Nov 2025", content: "Best Paper Honorable Mention @ CSCW 2025." },
+            { date: "Sep 2025", content: "Collaboration with Sophia University." },
           ].map((item, i) => (
-            <div key={i} className="timeline-item">
-              <div className="timeline-dot"></div>
-              <span className="text-xs font-mono text-accent uppercase tracking-widest mb-1 block">{item.date}</span>
-              <p className="text-primary font-medium">{item.content}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Education Section */}
-      <Section id="education" title="Education & Positions">
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <h3 className="text-2xl mb-6 flex items-center gap-2">
-              <GraduationCap className="text-accent" />
-              Education
-            </h3>
-            {[
-              { degree: "Ph.D. in Computer Science", school: "Institute of Science Tokyo", year: "2026 - Present" },
-              { degree: "M.S. in Information Systems", school: "Sophia University", year: "2023 - 2025" },
-              { degree: "B.S. in Software Engineering", school: "Placeholder University", year: "2019 - 2023" },
-            ].map((edu, i) => (
-              <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-surface transition-colors">
-                <div className="w-12 h-12 rounded-full bg-accent/5 flex items-center justify-center shrink-0">
-                  <GraduationCap size={20} className="text-accent" />
-                </div>
-                <div>
-                  <h4 className="font-bold">{edu.degree}</h4>
-                  <p className="text-sm text-secondary">{edu.school}</p>
-                  <p className="text-xs text-accent font-mono mt-1">{edu.year}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="space-y-6">
-            <h3 className="text-2xl mb-6 flex items-center gap-2">
-              <Briefcase className="text-accent" />
-              Positions
-            </h3>
-            {[
-              { role: "Collaborative Researcher", org: "Sophia University", year: "2025 - Present" },
-              { role: "Research Assistant", org: "HCI Lab, Tokyo", year: "2024 - 2025" },
-              { role: "Software Engineer Intern", org: "Tech Corp", year: "Summer 2022" },
-            ].map((pos, i) => (
-              <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-surface transition-colors">
-                <div className="w-12 h-12 rounded-full bg-accent/5 flex items-center justify-center shrink-0">
-                  <Briefcase size={20} className="text-accent" />
-                </div>
-                <div>
-                  <h4 className="font-bold">{pos.role}</h4>
-                  <p className="text-sm text-secondary">{pos.org}</p>
-                  <p className="text-xs text-accent font-mono mt-1">{pos.year}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Research Section */}
-      <Section id="research" title="Research Interests" className="bg-surface/50">
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { 
-              title: "Human-Computer Interaction", 
-              desc: "Exploring how humans interact with digital systems and designing more intuitive interfaces.",
-              icon: <Globe className="text-accent" />
-            },
-            { 
-              title: "Collaborative Systems", 
-              desc: "Building tools that facilitate group work and shared understanding across distances.",
-              icon: <Code className="text-accent" />
-            },
-            { 
-              title: "AI-Augmented Research", 
-              desc: "Leveraging large language models to assist researchers in literature review and data analysis.",
-              icon: <BookOpen className="text-accent" />
-            },
-          ].map((item, i) => (
-            <div key={i} className="card group">
-              <div className="w-12 h-12 rounded-2xl bg-accent/5 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-500">
-                {item.icon}
-              </div>
-              <h3 className="text-xl mb-3">{item.title}</h3>
-              <p className="text-secondary text-sm leading-relaxed">{item.desc}</p>
+            <div key={i} className="flex gap-3 items-start">
+              <span className="text-[10px] font-mono text-accent uppercase tracking-widest pt-1 shrink-0">{item.date}</span>
+              <p className="text-sm text-primary">{item.content}</p>
             </div>
           ))}
         </div>
@@ -275,7 +212,7 @@ export default function App() {
 
       {/* Publications Section */}
       <Section id="publications" title="Publications">
-        <div className="space-y-8">
+        <div className="space-y-4">
           {[
             { 
               title: "Designing Collaborative Interfaces for Remote Research Teams", 
@@ -303,19 +240,19 @@ export default function App() {
               link: "#"
             },
           ].map((pub, i) => (
-            <div key={i} className="group relative p-6 rounded-2xl border border-border hover:bg-surface transition-all duration-300">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div className="space-y-2">
-                  <div className="flex flex-wrap gap-2">
-                    {pub.tags.map(tag => <span key={tag} className="text-[10px] uppercase tracking-widest font-bold text-accent">{tag}</span>)}
-                    {pub.award && <span className="text-[10px] uppercase tracking-widest font-bold text-orange-500 flex items-center gap-1"><Award size={10} /> {pub.award}</span>}
+            <div key={i} className="group p-4 rounded-xl border border-border hover:border-accent/30 hover:bg-white transition-all duration-300">
+              <div className="flex justify-between items-start gap-4">
+                <div className="space-y-1">
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {pub.tags.map(tag => <span key={tag} className="text-[9px] uppercase tracking-widest font-bold text-accent">{tag}</span>)}
+                    {pub.award && <span className="text-[9px] uppercase tracking-widest font-bold text-orange-500 flex items-center gap-1"><Award size={10} /> {pub.award}</span>}
                   </div>
-                  <h3 className="text-xl font-bold group-hover:text-accent transition-colors">{pub.title}</h3>
-                  <p className="text-sm text-secondary italic">{pub.authors}</p>
-                  <p className="text-sm font-medium">{pub.venue}, {pub.year}</p>
+                  <h3 className="text-lg font-bold group-hover:text-accent transition-colors leading-tight">{pub.title}</h3>
+                  <p className="text-xs text-secondary italic">{pub.authors}</p>
+                  <p className="text-xs font-medium">{pub.venue}, {pub.year}</p>
                 </div>
-                <a href={pub.link} className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
-                  <ExternalLink size={18} />
+                <a href={pub.link} className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 shrink-0">
+                  <ExternalLink size={14} />
                 </a>
               </div>
             </div>
@@ -323,9 +260,9 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Projects Section */}
-      <Section id="projects" title="Projects" className="bg-surface/50">
-        <div className="grid md:grid-cols-2 gap-8">
+      {/* Projects Section - Research Results Focus */}
+      <Section id="projects" title="Research Projects">
+        <div className="grid md:grid-cols-2 gap-6">
           {[
             { 
               title: "CollabCanvas", 
@@ -340,8 +277,8 @@ export default function App() {
               image: "https://picsum.photos/seed/research/800/450"
             },
           ].map((project, i) => (
-            <div key={i} className="card p-0 overflow-hidden flex flex-col">
-              <div className="h-48 overflow-hidden">
+            <div key={i} className="card p-0 overflow-hidden flex flex-row h-40">
+              <div className="w-1/3 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
@@ -349,11 +286,11 @@ export default function App() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="p-6 space-y-4 flex-1 flex flex-col">
-                <h3 className="text-2xl">{project.title}</h3>
-                <p className="text-secondary text-sm leading-relaxed flex-1">{project.desc}</p>
-                <div className="flex flex-wrap gap-2 pt-4">
-                  {project.tech.map(t => <span key={t} className="text-[10px] font-mono bg-surface px-2 py-1 rounded border border-border">{t}</span>)}
+              <div className="w-2/3 p-4 space-y-2 flex flex-col justify-center">
+                <h3 className="text-lg font-bold">{project.title}</h3>
+                <p className="text-secondary text-xs leading-relaxed line-clamp-2">{project.desc}</p>
+                <div className="flex flex-wrap gap-1 pt-2">
+                  {project.tech.map(t => <span key={t} className="text-[9px] font-mono bg-surface px-1.5 py-0.5 rounded border border-border">{t}</span>)}
                 </div>
               </div>
             </div>
@@ -361,47 +298,44 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Contact Section */}
-      <footer id="contact" className="bg-primary text-white py-24 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 mb-12">
-            <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-serif tracking-tighter">Let's <span className="text-accent italic">Connect</span></h2>
-              <p className="text-gray-400 max-w-md leading-relaxed">
-                I'm always open to discussing research collaborations, speaking opportunities, or just chatting about HCI and technology.
-              </p>
-              <div className="space-y-4">
-                <a href="mailto:shiyo.lzy@gmail.com" className="flex items-center gap-4 text-xl hover:text-accent transition-colors">
-                  <Mail className="text-accent" />
-                  shiyo.lzy@gmail.com
-                </a>
-                <div className="flex gap-6 pt-4">
-                  <a href="#" className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300">
-                    <Github size={20} />
-                  </a>
-                  <a href="#" className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300">
-                    <Globe size={20} />
-                  </a>
-                </div>
-              </div>
+      {/* News Section - Compact */}
+      <Section id="news" title="Recent News" className="bg-surface/30">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-4">
+          {[
+            { date: "Mar 2026", content: "Presented our work at CHI 2026." },
+            { date: "Jan 2026", content: "Joined Institute of Science Tokyo." },
+            { date: "Nov 2025", content: "Best Paper Honorable Mention @ CSCW 2025." },
+            { date: "Sep 2025", content: "Collaboration with Sophia University." },
+          ].map((item, i) => (
+            <div key={i} className="flex gap-3 items-start">
+              <span className="text-[10px] font-mono text-accent uppercase tracking-widest pt-1 shrink-0">{item.date}</span>
+              <p className="text-sm text-primary">{item.content}</p>
             </div>
-            <div className="bg-white/5 p-8 rounded-3xl border border-white/10 space-y-6">
-              <h3 className="text-xl font-serif">Quick Links</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {navItems.map(item => (
-                  <a key={item.name} href={item.href} className="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-                    <ChevronRight size={14} className="text-accent" />
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-              <div className="pt-8 border-t border-white/10">
-                <p className="text-sm text-gray-500">
-                  © 2026 ZIYANG LIU. Built with React & Tailwind CSS.
-                </p>
-              </div>
-            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Contact Section - Streamlined */}
+      <footer id="contact" className="bg-primary text-white py-12 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="space-y-2 text-center md:text-left">
+            <h2 className="text-2xl font-serif tracking-tighter">Let's <span className="text-accent italic">Connect</span></h2>
+            <p className="text-gray-400 text-sm">Tokyo, Japan · shiyo.lzy@gmail.com</p>
           </div>
+          <div className="flex gap-4">
+            <a href="mailto:shiyo.lzy@gmail.com" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300">
+              <Mail size={18} />
+            </a>
+            <a href="https://github.com/ziyangliu-research" target="_blank" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300">
+              <Github size={18} />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300">
+              <Globe size={18} />
+            </a>
+          </div>
+          <p className="text-[10px] text-gray-500 uppercase tracking-widest">
+            © 2026 ZIYANG LIU
+          </p>
         </div>
       </footer>
     </div>
