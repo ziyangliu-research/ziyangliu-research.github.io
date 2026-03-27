@@ -94,13 +94,12 @@ export default function App() {
               </span>
               Available for Collaboration
             </div>
-            <h1 className="text-6xl md:text-8xl font-serif tracking-tighter leading-[0.9]">
-              Ziyang <br />
-              <span className="text-accent italic">Liu</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tighter leading-tight">
+              Ziyang <span className="text-accent italic">Liu</span>
             </h1>
             <p className="text-lg md:text-xl text-secondary max-w-2xl leading-relaxed">
-              Ph.D. Student · Collaborative Researcher <br />
-              <span className="font-medium text-primary">Institute of Science Tokyo · Sophia University</span>
+              Ph.D. Student @ <span className="text-primary font-medium">Institute of Science Tokyo</span> <br className="hidden md:block" />
+              Collaborative Researcher @ <span className="text-primary font-medium">Sophia University</span>
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
               <a href="mailto:shiyo.lzy@gmail.com" className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-accent transition-all duration-300 shadow-lg shadow-primary/10">
