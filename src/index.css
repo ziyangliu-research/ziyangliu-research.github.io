@@ -29,11 +29,11 @@
 }
 
 .section-padding {
-  @apply py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto;
+  @apply py-10 md:py-16 px-6 md:px-12 max-w-7xl mx-auto;
 }
 
 .card {
-  @apply bg-white border border-border rounded-2xl p-6 transition-all duration-300 hover:shadow-lg hover:border-accent/20;
+  @apply bg-white border border-border rounded-xl p-4 transition-all duration-300 hover:shadow-md hover:border-accent/20;
 }
 
 .nav-link {
