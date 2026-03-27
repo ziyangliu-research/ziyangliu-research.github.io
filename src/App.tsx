@@ -106,9 +106,9 @@ export default function App() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-border">
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 text-accent">
-                  <GraduationCap size={14} />
+              <div className="space-y-4">
+                <h3 className="text-sm md:text-base font-bold uppercase tracking-wider flex items-center gap-2 text-accent">
+                  <GraduationCap size={18} />
                   Education
                 </h3>
                 <div className="space-y-2">
@@ -124,9 +124,9 @@ export default function App() {
                 </div>
               </div>
               
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 text-accent">
-                  <Briefcase size={14} />
+              <div className="space-y-4">
+                <h3 className="text-sm md:text-base font-bold uppercase tracking-wider flex items-center gap-2 text-accent">
+                  <Briefcase size={18} />
                   Positions
                 </h3>
                 <div className="space-y-2">
@@ -162,9 +162,9 @@ export default function App() {
               </div>
             </div>
 
-            <div className="space-y-4 px-2">
-              <div className="space-y-1">
-                <h4 className="text-[10px] font-bold uppercase text-accent tracking-widest">Contact & Location</h4>
+            <div className="space-y-5 px-2">
+              <div className="space-y-2">
+                <h4 className="text-sm md:text-base font-bold uppercase text-accent tracking-wider">Contact & Location</h4>
                 <div className="space-y-2 pt-1">
                   <a href="mailto:shiyo.lzy@gmail.com" className="flex items-center gap-2 text-sm text-secondary hover:text-accent transition-colors">
                     <Mail size={14} />
